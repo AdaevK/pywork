@@ -2,6 +2,13 @@
     padding-top: 60px;
 }
 
-#comments-page h1 {
-    text-align: center;
+#comments-page ul {
+    list-style: none;
+}
+
+#comments-page ul li {
+    padding: 15px;
+    margin: 15px;
+    border: 1px solid #c1c1c1;
+    border-radius: 5px;
 }
