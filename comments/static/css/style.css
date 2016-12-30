@@ -4,6 +4,7 @@
 
 #comments-page ul {
     list-style: none;
+    padding: 0;
 }
 
 #comments-page ul li {
@@ -11,4 +12,8 @@
     margin: 15px;
     border: 1px solid #c1c1c1;
     border-radius: 5px;
+}
+
+form div.help-error {
+    color: red;
 }

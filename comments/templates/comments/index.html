@@ -4,29 +4,40 @@
 <div id="comments-page" >
     <div class="row">
         <div class="col-md-12">
-            <div class='text-center'>
+            <div class='page-header text-center'>
                 <h1> Comments </h1>
             </div>
-            <hr/>
-            {% if comments %}
-              <ul>
+              <ul id="comments-list">
                   {% for comment in comments %}
                     <li>
-                        <div class='body text-center'>
+                        <div class='text-center'>
                             {{ comment.body }}
                         </div>
                         <div class='text-right'>
-                            <span class='email'>
-                                email: {{ comment.email }},
-                            </span>
-                            <span class='created_at'>
-                                created at: {{ comment.created_at }}
-                            </span>
+                            <b>email:</b> {{ comment.email }},
+                            <b>created at:</b> {{ comment.created_at|date:"d.m.Y H:i:s" }}
                         </div>
                     </li>
                   {% endfor %}
               </ul>
-            {% endif %}
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form id="new-comment">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="comment_email">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="comment_body">Body</label>
+                            <textarea class="form-control" rows="2" id="body" name="body" placeholder="Comment Body"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Send Comment</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>
